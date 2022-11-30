@@ -22,7 +22,7 @@ Example Response:
 }
 ```
 
-Self-hosting:
+## hosting:
 ```bash
 yarn install
 yarn start
