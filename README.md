@@ -5,7 +5,9 @@ An unoffical API for [Here Comes The Bus](https://herecomesthebus.com/)
 ## api
 
 POST `/login`
+
 **Querystrings**
+
 - user: Your HCTB email
 - pass: Your HCTB password
 - code: Your HCTB district code, it's usually a 5 digit code that is used by the district.
@@ -23,6 +25,8 @@ Example Response:
 ```
 
 ## hosting:
+[heroku](https://heroku.com/deploy?template=https://github.com/aboutdavid/hctb-api) | [glitch](https://glitch.com/edit/#!/import/git?url=https://github.com/aboutdavid/hctb-api.git)
+### self-hosting
 ```bash
 yarn install
 yarn start
