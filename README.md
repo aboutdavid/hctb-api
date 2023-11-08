@@ -30,6 +30,8 @@ Example Response:
     "name": "David",
     "person": "7385b4fa-4563-4f02-97ea-0492e4619248",
     "time": "24b3a39b-8dc8-4cf5-a98c-d8ab9b05d544",
+    "lat": "33.7488",
+    "lon": "-84.3877",
     "cookie": ".ASPXFORMSAUTH=...",
     "times": [
         {
@@ -67,6 +69,8 @@ Example Response:
     "name": "David",
     "person": "7385b4fa-4563-4f02-97ea-0492e4619248",
     "time": "24b3a39b-8dc8-4cf5-a98c-d8ab9b05d544",
+    "lat": "33.7488",
+    "lon": "-84.3877",
     "cookie": ".ASPXFORMSAUTH=...",
     "times": [
         {
