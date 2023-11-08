@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+          crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+            integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+            crossorigin=""></script>
+    <style>
+        #map {
+            height: 50vh;
+        }
+    </style>
+    <title>Here Comes The Better Bus</title>
+
+    <!-- Halfmoon CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.0/css/halfmoon.min.css" rel="stylesheet"
+          integrity="sha256-pfT/Otf/lK1xFNInb5QQR1uRF9cOP/8zDICH+QQ6o2c=" crossorigin="anonymous">
+          <script>window.login = function(){}</script>
+
+</head>
+<body>
+
+<br>
+<!-- Sign in form -->
+<div class="container">
+<h1>Here Comes The Better Bus</h1><br>
+    <div class="card">
+
+        <div class="card-body">
+
+            <h5 class="card-title">Login</h5>
+            <div id="alerts"></div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" required placeholder="Email address">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="code">District Code</label>
+                    <input type="number" class="form-control" id="code" required placeholder="Code">
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="form-check mb-0">
+                        <input type="checkbox" class="form-check-input" id="remember" value="">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <button type="button" class="btn btn-primary ms-auto" onclick="window.login()" id="login">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Map</h5>
+            <p class="card-text"><div id="map"></div></p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Settings</h5>
+            <p class="card-text">
+                <label for="refresh" class="form-label">Refresh interval (takes effect on next reload):</label>
+                <div class="mb-3">
+
+                  
+                    <select class="form-select" id="refresh">
+                                    
+                      <option value="30000" selected>Every 30 seconds</option>
+                  
+                      <option value="60000">Every 60 seconds</option>                  
+                    </select>
+                  
+                  </div>
+                  <button type="button" class="btn btn-danger" onclick="logout()">Logout</button>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+<script src="/utils.js"></script>
+<script src="/map.js"></script>
+<footer><br>
+    <div class="container">
+        <p><center>Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright. Unless otherwised noted, this website is licensed under the AGPL (version 3).</center></p>
+    </div>
+</footer>
+</body>
+</html>

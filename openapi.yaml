@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: Here Comes the Bus API
+  version: 2.0.0
+paths:
+  /api/login:
+    post:
+      summary: Log in to Here Comes the Bus
+      parameters:
+        - in: query
+          name: user
+          required: true
+          schema:
+            type: string
+          description: Your HCTB email
+        - in: query
+          name: pass
+          required: true
+          schema:
+            type: string
+          description: Your HCTB password
+        - in: query
+          name: code
+          required: true
+          schema:
+            type: string
+          description: Your HCTB district code (5 digits)
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              example:
+                success: true
+                name: David
+                person: 7385b4fa-4563-4f02-97ea-0492e4619248
+                time: 24b3a39b-8dc8-4cf5-a98c-d8ab9b05d544
+                cookie: ".ASPXFORMSAUTH=..."
+                times:
+                  - id: 00b19431-c745-42cd-bb43-c1fe83a19f0d
+                    selected: true
+                    time: AM
+                  - id: 487f4d75-8e59-442a-9da4-a59424aecf1f
+                    selected: false
+                    time: MID
+                  - id: 9e89abd0-781c-4a2a-875f-a794c029330d
+                    selected: false
+                    time: PM
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              example:
+                success: false
+                error: "Please provide all credentials"
+
+  /api/session:
+    post:
+      summary: Uses an existing HCTB API Session
+      parameters:
+        - in: query
+          name: cookie
+          required: true
+          schema:
+            type: string
+          description: The cookie obtained from /api/login
+        - in: query
+          name: person
+          required: true
+          schema:
+            type: string
+          description: The person UUID obtained from /api/login
+        - in: query
+          name: time
+          required: true
+          schema:
+            type: string
+          description: The bus route time UUID obtained from /api/login
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+          description: The person's name obtained from /api/loign
+      responses:
+        '200':
+          description: Successful session lookup
+          content:
+            application/json:
+              example:
+                success: true
+                name: David
+                person: 7385b4fa-4563-4f02-97ea-0492e4619248
+                time: 24b3a39b-8dc8-4cf5-a98c-d8ab9b05d544
+                cookie: ".ASPXFORMSAUTH=..."
+                times:
+                  - id: 00b19431-c745-42cd-bb43-c1fe83a19f0d
+                    selected: true
+                    time: AM
+                  - id: 487f4d75-8e59-442a-9da4-a59424aecf1f
+                    selected: false
+                    time: MID
+                  - id: 9e89abd0-781c-4a2a-875f-a794c029330d
+                    selected: false
+                    time: PM
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              example:
+                success: false
+                error: "Please provide all credentials"
