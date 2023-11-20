@@ -96,9 +96,9 @@ app.post("/api/login", async function (req, res) {
       i++;
     }
     if (!cookie.includes(".ASPXFORMSAUTH")) return res.json({success: false, error: "Incorrect credentials"}).status(400)
-    const value = await page.$$eval('option[selected="selected"]', (el) => {
+  /*  const value = await page.$$eval('option[selected="selected"]', (el) => {
       return { name: el[1].innerHTML, person: el[1].value, time: el[2].value };
-    });
+    });*/
     const times = await page.evaluate(() => {
       const selectElement = document.getElementById('ctl00_ctl00_cphWrapper_cphControlPanel_ddlSelectTimeOfDay');
       const optionElements = selectElement.querySelectorAll('option');
@@ -146,7 +146,7 @@ app.post("/api/login", async function (req, res) {
           lat = coords[0]
           lon = coords[1]
         }
-        res.json({ success: true, ...value, lat:lat, lon:lon, cookie, times })
+        res.json({ success: true, lat:lat, lon:lon, cookie, times })
     });
 
     await browser.close();
