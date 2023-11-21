@@ -10,6 +10,8 @@ To enable the UI, you can just append `ENABLE_UI=true`
 ENABLE_UI=true yarn start
 ```
 
+## home assistant
+Expiremental Home Assistant support has been added as of 2.1.0. Ensure you have a `config.js` with all of the fields filled out and a running hctb-api server and run `node hass.js`
 
 ## api
 

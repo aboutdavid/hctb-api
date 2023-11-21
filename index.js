@@ -1,11 +1,9 @@
 const express = require("express");
 const app = express();
-const fetch = require("node-fetch");
+const fetch = require("node-fetch").default;
 const puppeteer = require("puppeteer");
-
 if (process.env.ENABLE_UI)  {
 app.use(express.static('./ui/public'))
-app.use('/', require("./ui/index.js"))
 }
 
 app.get("/api", async function (req, res) {
@@ -171,5 +169,6 @@ app.post("/api/reverse", function (request, response) {
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 8080, function () {
-  console.log("HCTB-API is listening on port " + listener.address().port + " :)");
+  console.log("[Info] HCTB-API is listening on port " + listener.address().port + " :)");
+  if (process.env.ENABLE_UI) console.log("[Info] Web UI Enabled");
 });

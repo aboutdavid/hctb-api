@@ -1,11 +1,12 @@
 {
   "name": "hctbb-api",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "An API for Here Comes The Bus (from Synovia)",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "hass": "node hass.js"
   },
   "dependencies": {
     "express": "^4.17.1",
