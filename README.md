@@ -13,11 +13,42 @@ ENABLE_UI=true yarn start
 ## home assistant
 Expiremental Home Assistant support has been added as of 2.1.0. Ensure you have a `config.js` with all of the fields filled out and a running hctb-api server and run `node hass.js`
 
+## known bugs
+- Accounts with multiple passengers listed face issues. As a temporary workaround, try using `/api/passengers`, then calling `/api/session`. You'll need to provide the route time UUID yourself. [issue 2](https://github.com/aboutdavid/hctb-api/issues/2). Version 3 will overhaul the API entirely and should fix the issue.
+
 ## api
 
 There is also an openapi.yaml file in the root directory.
 
+
+POST `/api/passengers`
+
+Usage: Getting all of the users for an account. Use this if you have multiple students under one account.
+
+**Querystrings**
+
+- user: Your HCTB email
+- pass: Your HCTB password
+- code: Your HCTB district code, it's usually a 5 digit code that is used by the district.
+
+Example Response:
+```json
+{
+    "success": true,
+    "cookie": ".ASPXFORMSAUTH=...",
+    "passengers": [
+        {
+            "text": "David ",
+            "value": "7385b4fa-4563-4f02-97ea-0492e461924"
+        }
+    ]
+}
+```
+
+
 POST `/api/login`
+
+Usage: Logins and grabs the location of the first student listed. This may fail if you have more than one student. See [issue 2](https://github.com/aboutdavid/hctb-api/issues/2) to learn more.
 
 **Querystrings**
 
@@ -56,6 +87,8 @@ Example Response:
 ```
 
 POST `/api/session`
+
+Usage: Preventing the need from logging in again until the cookie previously used expires.
 
 **Querystrings**
 
